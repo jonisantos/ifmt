@@ -13,7 +13,7 @@ import java.sql.*;
  */
 public class SingleConnection {
     
-    private static String url = "jdbc:mysql://localhost/fiemt";
+    private static String url = "jdbc:mysql://localhost/ifmt";
 	private static String password = "root";
 	private static String user = "root";
 	private static Connection connection = null;

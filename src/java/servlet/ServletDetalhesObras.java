@@ -35,21 +35,21 @@ public class ServletDetalhesObras extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
         try {
             String acao = request.getParameter("acao");
-            String user = request.getParameter("user");
+            String obra = request.getParameter("obra");
 
             if (acao.equalsIgnoreCase("delete")) {
-                daoDetalhe.delete(user);
+                daoDetalhe.delete(obra);
                 RequestDispatcher view = request
                         .getRequestDispatcher("/cadastroObrasDeArtr.jsp");
                 request.setAttribute("obras", daoDetalhe.listar());
                 view.forward(request, response);
             } else if (acao.equalsIgnoreCase("editar")) {
 
-                DetalhesObra obra = daoDetalhe.consultar(user);
+                DetalhesObra Dobra = daoDetalhe.consultar(obra);
 
                 RequestDispatcher view = request
                         .getRequestDispatcher("/cadastroObrasDeArte.jsp");
-                request.setAttribute("user", obra);
+                request.setAttribute("obra", Dobra);
                 view.forward(request, response);
             } else if (acao.equalsIgnoreCase("listartodos")) {
 

@@ -22,58 +22,58 @@
             <h3 style="color: orange;">${msg}</h3>
         </center>
 
-        <form action="salvarUsuario" method="post" id="formUser">
+        <form action="salvarObras" method="post" id="formObra">
             <ul class="form-style-1">
                 <li>
                     <table>
                         <tr>
                             <td>Código:</td>
                             <td><input type="text" readonly="readonly" id="id" name="id"
-                                       value="${user.id}" class="field-long"></td>
+                                       value="${obra.id}" class="field-long"></td>
                         </tr>
                         <tr>
                             <td>Titulo:</td>
-                            <td><input type="text" id="login" name="login"
-                                       value="${user.login}"></td>
+                            <td><input type="text" id="titulo" name="titulo"
+                                       value="${obra.titulo}"></td>
                         </tr>
 
                         <tr>
                             <td>Data:</td>
-                            <td><input type="password" id="senha" name="senha"
-                                       value="${user.senha}"></td>
+                            <td><input type="text" id="data" name="data"
+                                       value="${obra.data}"></td>
                         </tr>
                         <tr>
                             <td>Técnico:</td>
-                            <td><input type="text" id="nome" name="nome"
-                                       value="${user.nome}"></td>
+                            <td><input type="text" id="tecnico" name="tecnico"
+                                       value="${obra.tecnico}"></td>
                         </tr>
                         
                          <tr>
-                            <td>Dimensão Fisica:</td>
-                            <td><input type="text" id="nome" name="nome"
-                                       value="${user.nome}"></td>
+                            <td>Dimensões Fisica:</td>
+                            <td><input type="text" id="dimensoe_fisica" name="dimensoe_fisica"
+                                       value="${obra.dimensoe_fisica}"></td>
                         </tr>
                         
                          <tr>
                             <td>Autor:</td>
-                            <td><input type="text" id="nome" name="nome"
-                                       value="${user.nome}"></td>
+                            <td><input type="text" id="autor" name="autor"
+                                       value="${obra.autor}"></td>
                         </tr>
                         
                          <tr>
                             <td>Procedencia:</td>
-                            <td><input type="text" id="nome" name="nome"
-                                       value="${user.nome}"></td>
+                            <td><input type="text" id="procedencia" name="procedencia"
+                                       value="${obra.procedencia}"></td>
                         </tr>
                         
                          <tr>
                             <td>Tipo:</td>
-                            <td><input type="text" id="nome" name="nome"
-                                       value="${user.nome}"></td>
+                            <td><input type="text" id="tipo" name="tipo"
+                                       value="${obra.tipo}"></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><input type="submit" value="Salvar"> <input type="submit"  value="Cancelar" onclick="document.getElementById('formUser').action = 'salvarUsuario?acao=reset'"></td>
+                            <td><input type="submit" value="Salvar"> <input type="submit"  value="Cancelar" onclick="document.getElementById('formObra').action = 'salvarObras?acao=reset'"></td>
                         </tr>
                     </table>
 
@@ -83,26 +83,38 @@
 
         <div class="container">
             <table class="responsive-table">
-                <caption>Usuários cadastrados</caption>
+                <caption>Lisa de Obras</caption>
                 <tr>
                     <th>Id</th>
-                    <th>Login</th>
-                    <th>Nome</th>
-                    <th>Delete</th>
-                    <th>Editar</th>
+                    <th>Titulo</th>
+                    <th>Data</th>
+                    <th>Tecnico</th>th>
+                    <th>Dimensões Fisica</th>
+                    <th>Autor</th>
+                    <th>Procedencia</th>th>
+                    <th>Tipo</th>
                 </tr>
-                <c:forEach items="${usuarios}" var="user">
+                <c:forEach items="${obras}" var="obra">
                     <tr>
-                        <td style="width: 150px"><c:out value="${user.id}">
+                        <td style="width: 150px"><c:out value="${obra.id}">
                             </c:out></td>
-                        <td style="width: 150px"><c:out value="${user.login}">
+                        <td style="width: 150px"><c:out value="${obra.titulo}">
                             </c:out></td>
-                        <td><c:out value="${user.nome}"></c:out></td>
+                        <td><c:out value="${obra.data}"></c:out></td>
+                        
+                        <td style="width: 150px"><c:out value="${obra.tecnico}">
+                            </c:out></td>
+                        <td style="width: 150px"><c:out value="${obra.dimensoe_fisica}">
+                            </c:out></td>
+                        <td><c:out value="${obra.autor}"></c:out></td>
+                         <td style="width: 150px"><c:out value="${obra.procedencia}">
+                            </c:out></td>
+                        <td><c:out value="${obra.tipo}"></c:out></td>
 
-                            <td><a href="salvarUsuario?acao=delete&user=${user.id}"><img
+                            <td><a href="salvarObras?acao=delete&obra=${obra.id}"><img
                                     src="resources/img/excluir.png" alt="excluir" title="Excluir"
                                     width="20px" height="20px"> </a></td>
-                        <td><a href="salvarUsuario?acao=editar&user=${user.id}"><img
+                        <td><a href="salvarObras?acao=editar&obra=${obra.id}"><img
                                     alt="Editar" title="Editar" src="resources/img/editar.png"
                                     width="20px" height="20px"></a></td>
                     </tr>
